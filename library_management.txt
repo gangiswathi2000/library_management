@@ -79,11 +79,16 @@ class Library:
     def Returnbook(self):
         self.lst = []
         self.rename = input("enter your name?\n")
-        if self.rename != self.name:
-            print("enter valid name!")
+        while self.rename != self.name:
+             print("enter the correct name!")
+             self.rename = input("enter your name?\n")
+             continue
+             
         self.rerollno = input("enter your rollid\n")
-        if self.rerollno != self.rollno:
-           print("enter valid rollno!")
+        while self.rerollno != self.rollno:
+             print("enter valid rollno!")
+             self.rerollno = input("enter your rollid?\n")
+             continue
         else:
          if self.rename == self.name and self.rerollno == self.rollno:
             self.rebooksno = int(input("enter the no of books\n"))
