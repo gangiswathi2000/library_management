@@ -6,6 +6,7 @@ class Library:
         self.dict1={'C':450,'Python':650,'C++':670,'Ruby':590,'Jango':950,'C#':700,'Story-part1':500,'Story-part2':510,'Story-part3':520,'Story-part4':530,'Story-part5':540,'physics':700,'Engeneering maths':590,'Bee':835,'Ade':670}
         return f"{self.list1} \n These are books available in our library..."
 
+
     def Lendbook(self):
         while True:
          try:
@@ -20,9 +21,7 @@ class Library:
         print("valid!")
         self.c = 1
         self.list2 = []
-
         self.sum1=[]
-
         self.no = int(input("enter no: of books you want to register with!\n"))
         if self.no>6:
             print("Sorry!you not have a chance of taking beyond 6 books..")
@@ -37,9 +36,9 @@ class Library:
              self.len1=len(self.list2)
              jack.Displayprice()
         return f"{self.name}! Your Books List is {self.list2} have been succesfully registered!"
+        
+        
     def Addbook(self):
-
-
         self.aname = input("enter your name?\n")
         while(self.aname!=self.name):
              print("enter the correct name!")
@@ -71,28 +70,27 @@ class Library:
                  self.sum1.append(self.dict1[self.booksn])
                  self.list2.append(self.booksn)
                  self.len2=len(self.list2)
-
                  jack.Displayaprice()
-
-
               return f"{self.name}! your new list is here: {self.list2}..."
+              
+              
     def Returnbook(self):
         self.lst = []
         self.rename = input("enter your name?\n")
-        while self.rename != self.name:
-             print("enter the correct name!")
-             self.rename = input("enter your name?\n")
-             continue
-             
+        while(self.rename != self.name):
+            print("enter valid name!")
+            self.rename = input("enter your name?\n")
+            continue
         self.rerollno = input("enter your rollid\n")
-        while self.rerollno != self.rollno:
-             print("enter valid rollno!")
-             self.rerollno = input("enter your rollid?\n")
-             continue
+        while(self.rerollno != self.rollno):
+           print("enter valid rollno!")
+           self.rerollno = input("enter your rollid\n")
+           continue
         else:
          if self.rename == self.name and self.rerollno == self.rollno:
             self.rebooksno = int(input("enter the no of books\n"))
-            if self.rebooksno>self.len1 and self.rebooksno>self.len2 :
+            self.len2 = len(self.list2)
+            if self.rebooksno>self.len1 and self.rebooksno>self.len2:
                 print(f"invalid!You have not taken {self.rebooksno} books...")
             else:
              for k1 in range(self.rebooksno):
@@ -108,14 +106,20 @@ class Library:
                     print("Your book list is empty!")
                  else:
                     print(f"remaining books list is  {self.list2}")
+                    
+                    
     def Displayprice(self):
         for n in self.list2:
             print(f"The price for {n} book is {self.dict1[n]}rs")
         print(f"The total price is {sum(self.sum1)}rs")
+        
+        
     def Displayaprice(self):
         for n1 in self.list2:
             print(f"The price for {n1} book is {self.dict1[n1]}rs")
         print(f"The total price after adding the books is {sum(self.sum1)}rs")
+        
+        
     def Chances(self):
         print(f"You have exceeded your chances!")
         print("1 to come back!")
@@ -134,7 +138,7 @@ while (True):
         print("please!first lend your book..to do that press 1")
      elif v==3:
         print("Your book list is empty!...you have to lend books!..to do that press 1")
-        
+
     elif 1 in lst:
      if v == 1:
          print(jack.Lendbook())
