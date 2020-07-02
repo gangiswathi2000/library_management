@@ -1,0 +1,142 @@
+class Library:
+    print("                                     ___--***** Welcome to the library ******--*___                         ")
+    def displaybook(self):
+        self.list1 = ['C', 'Python', 'C++', 'Ruby', 'Django', 'C#', 'Story-part1', 'Story-part2', 'Story-part3',
+                      'Story-part4', 'Story-part5', 'physics', 'Engeneering maths', 'Bee', 'Ade']
+        self.dict1={'C':450,'Python':650,'C++':670,'Ruby':590,'Jango':950,'C#':700,'Story-part1':500,'Story-part2':510,'Story-part3':520,'Story-part4':530,'Story-part5':540,'physics':700,'Engeneering maths':590,'Bee':835,'Ade':670}
+        return f"{self.list1} \n These are books available in our library..."
+
+    def Lendbook(self):
+        while True:
+         try:
+          self.name = input("enter your name?\n")
+          if self.name!=int(self.name):
+             print("invalid!")
+         except:
+             print("valid!")
+             break
+
+        self.rollno = input("enter your rollid\n")
+        print("valid!")
+        self.c = 1
+        self.list2 = []
+
+        self.sum1=[]
+
+        self.no = int(input("enter no: of books you want to register with!\n"))
+        if self.no>6:
+            print("Sorry!you not have a chance of taking beyond 6 books..")
+        else:
+         for l in range(self.no):
+            self.s = input("enter the book?\n").capitalize()
+            if self.s not in self.list1:
+                print(f"oops! {self.s} is not found")
+            else:
+             self.sum1.append(self.dict1[self.s])
+             self.list2.append(self.s)
+             self.len1=len(self.list2)
+             jack.Displayprice()
+        return f"{self.name}! Your Books List is {self.list2} have been succesfully registered!"
+    def Addbook(self):
+
+
+        self.aname = input("enter your name?\n")
+        while(self.aname!=self.name):
+             print("enter the correct name!")
+             self.aname = input("enter your name?\n")
+             continue
+
+        self.arollno = input("enter your rollno\n")
+        while(self.arollno != self.rollno):
+            print("enter valid rollno!")
+            self.arollno = input("enter your rollno\n")
+            continue
+        if None:
+            print("please! enter valid details")
+        else:
+            if self.aname == self.name and self.arollno == self.rollno:
+              self.booksno = int(input("enter the no of books\n"))
+              if (self.booksno+self.no)>6:
+                  print("Sorry!you not have a chance of taking beyond 6 books..")
+              else:
+               for k in range(self.booksno):
+                self.booksn = input("enter the books\n").capitalize()
+                if self.booksn not in self.list1:
+                    print(f"oops! {self.booksn} is not found")
+                elif self.booksn in self.list2:
+                    print(f"{self.booksn} book already exist!")
+
+                    continue
+                else:
+                 self.sum1.append(self.dict1[self.booksn])
+                 self.list2.append(self.booksn)
+                 self.len2=len(self.list2)
+
+                 jack.Displayaprice()
+
+
+              return f"{self.name}! your new list is here: {self.list2}..."
+    def Returnbook(self):
+        self.lst = []
+        self.rename = input("enter your name?\n")
+        if self.rename != self.name:
+            print("enter valid name!")
+        self.rerollno = input("enter your rollid\n")
+        if self.rerollno != self.rollno:
+           print("enter valid rollno!")
+        else:
+         if self.rename == self.name and self.rerollno == self.rollno:
+            self.rebooksno = int(input("enter the no of books\n"))
+            if self.rebooksno>self.len1 and self.rebooksno>self.len2 :
+                print(f"invalid!You have not taken {self.rebooksno} books...")
+            else:
+             for k1 in range(self.rebooksno):
+                self.rebooksn = input("enter the books\n").capitalize()
+                if self.rebooksn not in self.list2:
+                    print(f"oops! {self.rebooksn} this book is not in your list!")
+                elif self.rebooksn not in self.list1:
+                    print(f"oops! {self.rebooksn} is not found")
+                else:
+                 print(f"You have successfully returned {self.rebooksn} book")
+                 self.list2.remove(self.rebooksn)
+                 if self.list2==[]:
+                    print("Your book list is empty!")
+                 else:
+                    print(f"remaining books list is  {self.list2}")
+    def Displayprice(self):
+        for n in self.list2:
+            print(f"The price for {n} book is {self.dict1[n]}rs")
+        print(f"The total price is {sum(self.sum1)}rs")
+    def Displayaprice(self):
+        for n1 in self.list2:
+            print(f"The price for {n1} book is {self.dict1[n1]}rs")
+        print(f"The total price after adding the books is {sum(self.sum1)}rs")
+    def Chances(self):
+        print(f"You have exceeded your chances!")
+        print("1 to come back!")
+        v=int(input())
+        if(v==1):
+            print(jack.Lendbook())
+
+jack = Library()
+lst=[]
+while (True):
+    print(jack.displaybook())
+    v = int(input("enter 1 to lendbook or 2 to addbook or 3 to returnbook or 4 to exit\n"))
+    lst.append(v)
+    if 1 not in lst:
+     if v==2:
+        print("please!first lend your book..to do that press 1")
+     elif v==3:
+        print("Your book list is empty!...you have to lend books!..to do that press 1")
+        
+    elif 1 in lst:
+     if v == 1:
+         print(jack.Lendbook())
+     elif v == 2:
+        print(jack.Addbook())
+     elif v == 3:
+        jack.Returnbook()
+     elif v == 4:
+        print("...........______*****Thankyou****______.............")
+        break
